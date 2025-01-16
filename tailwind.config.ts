@@ -9,9 +9,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+        sans: ["var(--font-sans-regular)"],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        info: {
+          DEFAULT: "hsl(var(--info))",
+        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -48,6 +55,14 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      spacing: {
+        7.5: "1.875rem",
+        9.5: "2.375rem",
+      },
+      screens: {
+        mobile: "375px",
+        desktop: "1440px",
       },
     },
   },
