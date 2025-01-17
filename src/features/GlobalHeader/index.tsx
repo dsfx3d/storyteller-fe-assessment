@@ -1,11 +1,11 @@
 "use client";
 import {Avatar, AvatarFallback} from "~/components/ui/avatar";
+import {Menu} from "lucide-react";
 import {cn} from "~/lib/utils";
+import {sidebarToggleContainer} from "~/features/Sidebar/sidebarToggleContainer";
+import {useEffect, useState} from "react";
 import AHelpIcon from "~/components/atoms/AHelpIcon";
 import AStorytellerLogo from "~/components/atoms/AStorytellerLogo";
-import {sidebarToggleContainer} from "~/features/Sidebar/sidebarToggleContainer";
-import {Menu} from "lucide-react";
-import {useEffect, useState} from "react";
 
 export function GlobalHeader() {
   const [isReady, setIsReady] = useState(false);
