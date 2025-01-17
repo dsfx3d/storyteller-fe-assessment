@@ -1,15 +1,14 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
-import {OGlobalHeader} from "./OGlobalHeader";
+import {GlobalHeader} from "./index";
 
 const meta = {
-  title: "Organisms/GlobalHeader",
-  component: OGlobalHeader,
+  title: "Features/GlobalHeader",
+  component: GlobalHeader,
   parameters: {
     layout: "fullscreen",
   },
-  tags: ["autodocs"],
-} satisfies Meta<typeof OGlobalHeader>;
+} satisfies Meta<typeof GlobalHeader>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
