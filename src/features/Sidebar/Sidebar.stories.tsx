@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import {Sidebar} from "./index";
 import {sidebarToggleContainer} from "./sidebarToggleContainer";
-import {globalHeaderHeight} from "../GlobalHeader/globalHeaderHeight";
 
 const meta = {
   title: "Features/Sidebar",
@@ -11,7 +10,7 @@ const meta = {
       <div className="bg-background">
         <div
           id={sidebarToggleContainer}
-          className={`bg-primary h-[${globalHeaderHeight}]`}
+          className={`bg-primary h-[60px]`}
         ></div>
         <Story />
       </div>

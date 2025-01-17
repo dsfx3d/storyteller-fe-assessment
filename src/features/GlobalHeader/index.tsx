@@ -1,17 +1,27 @@
+"use client";
 import {Avatar, AvatarFallback} from "~/components/ui/avatar";
 import {cn} from "~/lib/utils";
 import AHelpIcon from "~/components/atoms/AHelpIcon";
 import AStorytellerLogo from "~/components/atoms/AStorytellerLogo";
 import {sidebarToggleContainer} from "~/features/Sidebar/sidebarToggleContainer";
-import {globalHeaderHeight} from "./globalHeaderHeight";
+import {Menu} from "lucide-react";
+import {useEffect, useState} from "react";
 
 export function GlobalHeader() {
+  const [isReady, setIsReady] = useState(false);
+  useEffect(() => setIsReady(true), []);
+
   return (
     <nav
-      className={`bg-primary flex w-full justify-between items-center px-5 h-[${globalHeaderHeight}]`}
+      className={`bg-primary flex w-full justify-between items-center px-5 min-h-[60px]`}
     >
       <div className={cn(headerGroup, "gap-4")}>
-        <div id={sidebarToggleContainer} className="desktop:hidden"></div>
+        <div id={sidebarToggleContainer} className="desktop:hidden">
+          {/* placeholder to avoid flicker on initial load */}
+          {!isReady && (
+            <Menu size={32} color="white" className="desktop:scale-x-0" />
+          )}
+        </div>
         <AStorytellerLogo className="h-9.5 w-auto" />
       </div>
       <div className={headerGroup}>

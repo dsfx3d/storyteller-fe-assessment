@@ -9,7 +9,6 @@ import {useToggle} from "~/hooks/useToggle";
 import {cn} from "~/lib/utils";
 import {SidebarTogglePortal} from "./SidebarTogglePortal";
 import {EBreakpoints} from "~/lib/enums/EBreakpoints";
-import {globalHeaderHeight} from "../GlobalHeader/globalHeaderHeight";
 import {sidebarZIndex} from "./sidebarZIndex";
 
 const sidebarNavId = "sidebar-nav";
@@ -41,11 +40,7 @@ export function Sidebar() {
         menus={sidebarNavMenus}
       />
       <AnOverlay
-        className={cn(
-          `top-[${globalHeaderHeight}]`,
-          `h-[calc(100vh_-_${globalHeaderHeight})]`,
-          `z-[${sidebarZIndex - 1}]`,
-        )}
+        className="top-[60px] h-[calc(100vh_-_60px)] z-40"
         onClick={toggleIsOpen}
         isOpen={isOpen && isTablet}
       />
@@ -55,7 +50,7 @@ export function Sidebar() {
 
 const toSidebar = (isOpen: boolean) =>
   cn(
-    `z-[${sidebarZIndex}] bg-primary w-[228px] h-[calc(100vh_-_${globalHeaderHeight})]`,
+    `z-[50] bg-primary min-w-[228px] h-[calc(100vh_-_60px)]`,
     "absolute desktop:relative",
     "transition-transform desktop:transition-none",
     {
