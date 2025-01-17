@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {sidebarToggleContainer} from "./sidebarToggleContainer";
 import {createPortal} from "react-dom";
