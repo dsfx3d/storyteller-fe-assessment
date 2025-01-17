@@ -16,10 +16,18 @@ const preview: Preview = {
           },
           type: "mobile",
         },
-        customLarge: {
+        tablet: {
+          name: "Tablet",
+          styles: {
+            width: "768px",
+            height: "1024px",
+          },
+          type: "tablet",
+        },
+        desktop: {
           name: "Desktop Large",
           styles: {
-            width: "1440px",
+            width: "1024px",
             height: "900px",
           },
           type: "desktop",
