@@ -1,5 +1,4 @@
 import "./globals.css";
-import {OGlobalHeader} from "~/components/organisms/OGlobalHeader";
 import {cn} from "~/lib/utils";
 import {inter, sansRegular} from "~/lib/fonts";
 import type {Metadata} from "next";
@@ -15,9 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn("antialiased", inter.variable, sansRegular.variable)}>
-        <OGlobalHeader />
+    <html lang="en" className="h-full bg-primary">
+      <body
+        className={cn(
+          "antialiased h-full",
+          inter.variable,
+          sansRegular.variable,
+        )}
+      >
         {children}
       </body>
     </html>
