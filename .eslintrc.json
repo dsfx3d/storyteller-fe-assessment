@@ -4,5 +4,8 @@
     "next/typescript",
     "eslint-config-dsfx3d",
     "plugin:storybook/recommended"
-  ]
+  ],
+  "rules": {
+    "unicorn/no-null": "off"
+  }
 }
