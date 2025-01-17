@@ -5,6 +5,7 @@ const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -57,12 +58,14 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       spacing: {
+        4.5: "1.125rem",
         7.5: "1.875rem",
         9.5: "2.375rem",
       },
       screens: {
         mobile: "375px",
-        desktop: "1440px",
+        tablet: "768px",
+        desktop: "1024px",
       },
     },
   },
