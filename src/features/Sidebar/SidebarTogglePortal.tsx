@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {sidebarToggleContainer} from "./sidebarToggleContainer";
 import {createPortal} from "react-dom";
 
@@ -8,6 +8,15 @@ type TProps = {
 };
 
 export function SidebarTogglePortal({children}: TProps) {
+  const [isReady, setIsReady] = useState(false);
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
+
+  if (!isReady) {
+    return null;
+  }
+
   const portalContainer = document.getElementById(
     sidebarToggleContainer,
   ) as Element;
