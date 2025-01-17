@@ -1,4 +1,6 @@
 import type {Config} from "tailwindcss";
+import {globalHeaderHeight} from "./src/features/GlobalHeader/globalHeaderHeight";
+import {sidebarZIndex} from "./src/features/Sidebar/sidebarZIndex";
 
 const config: Config = {
   darkMode: ["class"],
@@ -7,6 +9,13 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  safelist: [
+    // Sidebar styles
+    `h-[${globalHeaderHeight}]`,
+    `h-[calc(100vh_-_${globalHeaderHeight})]`,
+    `z-[${sidebarZIndex}]`,
+    `z-[${sidebarZIndex - 1}]`,
   ],
   theme: {
     extend: {

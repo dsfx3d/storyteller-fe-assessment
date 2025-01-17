@@ -10,9 +10,9 @@ import {cn} from "~/lib/utils";
 import {SidebarTogglePortal} from "./SidebarTogglePortal";
 import {EBreakpoints} from "~/lib/enums/EBreakpoints";
 import {globalHeaderHeight} from "../GlobalHeader/globalHeaderHeight";
+import {sidebarZIndex} from "./sidebarZIndex";
 
 const sidebarNavId = "sidebar-nav";
-const sidebarZIndex = 9999;
 
 export function Sidebar() {
   const isTablet = useIsBreakpoint(EBreakpoints.Tablet);
@@ -55,7 +55,7 @@ export function Sidebar() {
 
 const toSidebar = (isOpen: boolean) =>
   cn(
-    `z-[${sidebarZIndex}] bg-primary w-[228px] h-[calc(100%_-_${globalHeaderHeight})]`,
+    `z-[${sidebarZIndex}] bg-primary w-[228px] h-[calc(100vh_-_${globalHeaderHeight})]`,
     "absolute desktop:relative",
     "transition-transform desktop:transition-none",
     {
