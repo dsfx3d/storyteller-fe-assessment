@@ -1,15 +1,14 @@
 "use client";
-import {useEffect} from "react";
 import {AnOverlay} from "~/components/atoms/AnOverlay";
+import {EBreakpoints} from "~/lib/enums/EBreakpoints";
 import {MHamburgerToggle} from "~/components/molecules/MHamburgerToggle";
 import {SidebarNav} from "~/features/Sidebar/SidebarNav";
+import {SidebarTogglePortal} from "./SidebarTogglePortal";
+import {cn} from "~/lib/utils";
 import {sidebarNavMenus} from "~/features/Sidebar/sidebarNavMenus";
+import {useEffect} from "react";
 import {useIsBreakpoint} from "~/hooks/useIsBreakpoint";
 import {useToggle} from "~/hooks/useToggle";
-import {cn} from "~/lib/utils";
-import {SidebarTogglePortal} from "./SidebarTogglePortal";
-import {EBreakpoints} from "~/lib/enums/EBreakpoints";
-import {sidebarZIndex} from "./sidebarZIndex";
 
 const sidebarNavId = "sidebar-nav";
 
@@ -17,8 +16,10 @@ export function Sidebar() {
   const isTablet = useIsBreakpoint(EBreakpoints.Tablet);
   const [isOpen, toggleIsOpen, setIsOpen] = useToggle(false);
   useEffect(() => {
-    isTablet !== undefined && setIsOpen(!isTablet);
-  }, [isTablet]);
+    if (isTablet !== undefined) {
+      setIsOpen(!isTablet);
+    }
+  }, [isTablet, setIsOpen]);
   return (
     <>
       <SidebarTogglePortal>

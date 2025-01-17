@@ -1,6 +1,6 @@
-import type {Meta, StoryObj} from "@storybook/react";
 import {Sidebar} from "./index";
 import {sidebarToggleContainer} from "./sidebarToggleContainer";
+import type {Meta, StoryObj} from "@storybook/react";
 
 const meta = {
   title: "Features/Sidebar",

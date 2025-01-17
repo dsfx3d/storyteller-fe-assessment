@@ -1,5 +1,4 @@
 import type {Config} from "tailwindcss";
-import {sidebarZIndex} from "./src/features/Sidebar/sidebarZIndex";
 
 const config: Config = {
   darkMode: ["class"],

@@ -1,7 +1,7 @@
 "use client";
-import React, {useEffect, useState} from "react";
-import {sidebarToggleContainer} from "./sidebarToggleContainer";
 import {createPortal} from "react-dom";
+import {sidebarToggleContainer} from "./sidebarToggleContainer";
+import React, {useEffect, useState} from "react";
 
 type TProps = {
   children: React.ReactNode;
@@ -17,8 +17,6 @@ export function SidebarTogglePortal({children}: TProps) {
     return null;
   }
 
-  const portalContainer = document.getElementById(
-    sidebarToggleContainer,
-  ) as Element;
+  const portalContainer = document.querySelector(`#${sidebarToggleContainer}`);
   return portalContainer && createPortal(children, portalContainer);
 }
