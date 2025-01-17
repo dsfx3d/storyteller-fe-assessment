@@ -1,7 +1,7 @@
 import {IO} from "fp-ts/lib/IO";
-import {Menu, X, LucideIcon} from "lucide-react";
-import {useCallback} from "react";
+import {type LucideIcon, Menu, X} from "lucide-react";
 import {cn} from "~/lib/utils";
+import {useCallback} from "react";
 
 type TProps = Omit<React.ComponentProps<LucideIcon>, "role"> & {
   value: boolean;
