@@ -16,14 +16,15 @@ export function MStoryThumbnails({thumbnails}: TProps) {
   return (
     <div className="flex gap-1">
       {thumbs.map(thumbnail => (
-        <Image
-          key={thumbnail}
-          src={`https://picsum.photos/29/52?random=${thumbnail}`}
-          width={29}
-          height={52}
-          alt="Story thumbnail"
-          className={thumbnailStyle}
-        />
+        <a href="#" key={thumbnail}>
+          <Image
+            src={`https://picsum.photos/29/52?random=${thumbnail}`}
+            width={29}
+            height={52}
+            alt="Story thumbnail"
+            className={thumbnailStyle}
+          />
+        </a>
       ))}
       {tooManyThumbnails && (
         <MoreThumbnails value={thumbnails.length - maxThumbnails + 1} />
