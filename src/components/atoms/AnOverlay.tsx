@@ -16,7 +16,7 @@ export function AnOverlay({isOpen, className, ...divProps}: TProps) {
 
 const toAnOverlay = (isOpen?: boolean) =>
   cn(
-    "absolute w-screen h-screen bg-black left-0 top-0",
+    "fixed w-screen h-[200vh] bg-black left-0 top-0",
     "opacity-75 z-40 transition-opacity",
     {"hidden opacity-0": !isOpen},
   );
