@@ -13,18 +13,18 @@ import {useToggle} from "~/hooks/useToggle";
 const sidebarNavId = "sidebar-nav";
 
 export function Sidebar() {
-  const isTablet = useIsBreakpoint(EBreakpoints.lg);
-  const [isOpen, toggleIsOpen, setIsOpen] = useToggle(false);
+  const isLessThanLg = useIsBreakpoint(EBreakpoints.lg);
+  const [isOpen, toggleIsOpen, setIsOpen] = useToggle(true);
   useEffect(() => {
-    if (isTablet !== undefined) {
-      setIsOpen(!isTablet);
+    if (isLessThanLg !== undefined) {
+      setIsOpen(!isLessThanLg);
     }
-  }, [isTablet, setIsOpen]);
+  }, [isLessThanLg, setIsOpen]);
 
   // disable body scroll when sidebar is open on tablet and below
   useEffect(() => {
-    document.body.style.overflow = isTablet && isOpen ? "hidden" : "auto";
-  }, [isTablet, isOpen]);
+    document.body.style.overflow = isLessThanLg && isOpen ? "hidden" : "auto";
+  }, [isLessThanLg, isOpen]);
   return (
     <>
       <SidebarTogglePortal>
@@ -42,20 +42,22 @@ export function Sidebar() {
       <SidebarNav
         id={sidebarNavId}
         aria-hidden={!isOpen}
-        className={toSidebar(isOpen)}
+        className={toSidebar(isOpen && isLessThanLg)}
         menus={sidebarNavMenus}
       />
-      <AnOverlay onClick={toggleIsOpen} isOpen={isOpen && isTablet} />
+      <AnOverlay onClick={toggleIsOpen} isOpen={isOpen && isLessThanLg} />
     </>
   );
 }
 
-const toSidebar = (isOpen: boolean) =>
+const toSidebar = (isOpen?: boolean) =>
   cn(
     `z-[50] bg-primary min-w-[228px] h-[calc(100vh_-_60px)]`,
     "absolute lg:relative",
+    "scale-x-0 lg:scale-x-100",
+    "translate-x-[-100%] lg:translate-x-0",
     "transition-transform lg:transition-none",
     {
-      "translate-x-[-100%] scale-x-0": !isOpen,
+      "translate-x-0 scale-x-100": isOpen,
     },
   );
