@@ -12,6 +12,7 @@ import {StoryThumbnailCell} from "./cells/StoryThumbnailCell";
 import {TColumnDef} from "~/components/organisms/ODataTable/TColumnDef";
 import {TStory} from "~/services/stories/types/TStory";
 import {TitleCell} from "./cells/TitleCell";
+import StoryFilters from "./StoryFilters";
 
 type TProps = {
   data: TStory[];
@@ -26,6 +27,7 @@ export function StoriesTable({data}: TProps) {
   ]);
   return (
     <>
+      <StoryFilters />
       <div className="overflow-auto">
         <ODataTable
           columns={columns}
