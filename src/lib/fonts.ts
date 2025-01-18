@@ -9,8 +9,13 @@ export const inter = Inter({
 });
 
 export const sansRegular = localFont({
-  src: "../app/fonts/EuclidCircularB-Regular.woff",
-  weight: "400",
-  variable: "--font-sans-regular",
+  src: [
+    {path: "../app/fonts/EuclidCircularB-Regular.woff", weight: "400"},
+    {
+      path: "../app/fonts/EuclidCircularB-Bold.woff",
+      weight: "700",
+    },
+  ],
+  variable: "--font-sans",
   display: "swap",
 });

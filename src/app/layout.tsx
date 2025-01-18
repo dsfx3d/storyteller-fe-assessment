@@ -1,6 +1,6 @@
 import "./globals.css";
 import {cn} from "~/lib/utils";
-import {inter, sansRegular} from "~/lib/fonts";
+import {sansRegular} from "~/lib/fonts";
 import type {Metadata} from "next";
 
 export const metadata: Metadata = {
@@ -15,13 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full bg-primary">
-      <body
-        className={cn(
-          "antialiased h-full",
-          inter.variable,
-          sansRegular.variable,
-        )}
-      >
+      <body className={cn("antialiased h-full", sansRegular.variable)}>
         {children}
       </body>
     </html>
