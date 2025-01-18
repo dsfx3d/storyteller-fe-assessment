@@ -3,7 +3,7 @@ import {Pencil, Trash2} from "lucide-react";
 
 export function RowActions() {
   return (
-    <div className="flex gap-4 pr-7.5">
+    <div className="flex pr-4.5 gap-4 justify-center">
       <Button variant="destructive" size="sm">
         <Trash2 />
       </Button>
