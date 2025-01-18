@@ -20,6 +20,11 @@ export function Sidebar() {
       setIsOpen(!isTablet);
     }
   }, [isTablet, setIsOpen]);
+
+  // disable body scroll when sidebar is open on tablet and below
+  useEffect(() => {
+    document.body.style.overflow = isTablet && isOpen ? "hidden" : "auto";
+  }, [isTablet, isOpen]);
   return (
     <>
       <SidebarTogglePortal>
@@ -40,11 +45,7 @@ export function Sidebar() {
         className={toSidebar(isOpen)}
         menus={sidebarNavMenus}
       />
-      <AnOverlay
-        className="top-[60px] h-[calc(100vh_-_60px)] z-40"
-        onClick={toggleIsOpen}
-        isOpen={isOpen && isTablet}
-      />
+      <AnOverlay onClick={toggleIsOpen} isOpen={isOpen && isTablet} />
     </>
   );
 }
