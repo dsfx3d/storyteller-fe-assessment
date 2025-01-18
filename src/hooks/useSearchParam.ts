@@ -1,20 +1,24 @@
 import {useCallback} from "react";
 import {useRouter, useSearchParams} from "next/navigation";
 
-export function useSearchParam(param: string) {
+type TProps = {
+  emptyValue?: string;
+};
+
+export function useSearchParam(param: string, {emptyValue = ""}: TProps = {}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const set = useCallback(
     (value: string) => {
       const query = new URLSearchParams(searchParams.toString());
-      if (value.trim().length > 0) {
-        query.set(param, value);
-      } else {
+      if (value.trim() === emptyValue) {
         query.delete(param);
+      } else {
+        query.set(param, value);
       }
       router.push(`?${query.toString()}`);
     },
-    [searchParams, router, param],
+    [searchParams, router, param, emptyValue],
   );
-  return [searchParams.get(param) ?? "", set] as const;
+  return [searchParams.get(param) ?? emptyValue, set] as const;
 }
