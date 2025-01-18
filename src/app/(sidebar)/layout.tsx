@@ -9,11 +9,9 @@ export default function SidebarLayout({children}: TProps) {
   return (
     <div className="flex flex-col w-full h-full bg-primary">
       <GlobalHeader />
-      <div className="flex grow desktop:pr-8 desktop:mb-8">
+      <div className="flex grow lg:pr-8 lg:mb-8">
         <Sidebar />
-        <main className="grow bg-background desktop:rounded-b-xl px-4.5 desktop:px-7.5 py-4 font-black">
-          {children}
-        </main>
+        {children}
       </div>
     </div>
   );

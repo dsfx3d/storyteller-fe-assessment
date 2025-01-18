@@ -61,11 +61,7 @@ const config: Config = {
         4.5: "1.125rem",
         7.5: "1.875rem",
         9.5: "2.375rem",
-      },
-      screens: {
-        mobile: "375px",
-        tablet: "768px",
-        desktop: "1024px",
+        21: "5.25rem",
       },
     },
   },

@@ -1,3 +1,3 @@
 export enum EBreakpoints {
-  Tablet = 769,
+  lg = 1024,
 }

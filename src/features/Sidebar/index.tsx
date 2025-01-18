@@ -13,7 +13,7 @@ import {useToggle} from "~/hooks/useToggle";
 const sidebarNavId = "sidebar-nav";
 
 export function Sidebar() {
-  const isTablet = useIsBreakpoint(EBreakpoints.Tablet);
+  const isTablet = useIsBreakpoint(EBreakpoints.lg);
   const [isOpen, toggleIsOpen, setIsOpen] = useToggle(false);
   useEffect(() => {
     if (isTablet !== undefined) {
@@ -26,7 +26,7 @@ export function Sidebar() {
         <MHamburgerToggle
           size={32}
           color="white"
-          className="desktop:scale-x-0"
+          className="lg:scale-x-0"
           value={isOpen}
           onToggle={toggleIsOpen}
           aria-expanded={isOpen}
@@ -52,8 +52,8 @@ export function Sidebar() {
 const toSidebar = (isOpen: boolean) =>
   cn(
     `z-[50] bg-primary min-w-[228px] h-[calc(100vh_-_60px)]`,
-    "absolute desktop:relative",
-    "transition-transform desktop:transition-none",
+    "absolute lg:relative",
+    "transition-transform lg:transition-none",
     {
       "translate-x-[-100%] scale-x-0": !isOpen,
     },
