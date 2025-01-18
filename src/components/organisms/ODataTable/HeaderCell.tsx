@@ -22,7 +22,7 @@ export function HeaderCell({column}: THeaderProps) {
     meta?.columnName && (
       <Button
         variant="ghost"
-        className="p-0 text-sm justify-start font-bold h-7"
+        className="p-0 text-sm justify-start font-semibold h-7"
         onClick={handleClick}
       >
         {meta?.columnName}

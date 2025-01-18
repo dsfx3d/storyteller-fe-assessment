@@ -12,7 +12,7 @@ export const MSearchbar = forwardRef<HTMLInputElement, TProps>(
     return (
       <div
         className={cn(
-          "rounded-sm flex bg-white focus-within:ring-1 focus-within:ring-ring",
+          "rounded-sm flex focus-within:ring-1 focus-within:ring-ring",
           className,
         )}
       >

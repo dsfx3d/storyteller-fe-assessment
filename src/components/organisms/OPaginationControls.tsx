@@ -34,7 +34,7 @@ export function OPaginationControls({totalPages}: TProps) {
       <div>
         <Button
           role="button"
-          className="text-[#888a8f] rounded-r-none border-r-[0.5px] rounded-l w-8 h-8"
+          className="text-[#888a8f] rounded-r-none border-r-[0.5px] rounded-l-sm w-8 h-8"
           variant="outline"
           onClick={() => setPage((+page - 1).toString())}
         >
@@ -42,7 +42,7 @@ export function OPaginationControls({totalPages}: TProps) {
         </Button>
         <Button
           role="button"
-          className="text-[#888a8f] rounded-l-none border-l-[0.5px] rounded-r w-8 h-8"
+          className="text-[#888a8f] rounded-l-none border-l-[0.5px] rounded-r-sm w-8 h-8"
           variant="outline"
           onClick={() => setPage((+page + 1).toString())}
         >

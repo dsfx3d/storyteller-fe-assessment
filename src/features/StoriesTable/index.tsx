@@ -36,7 +36,7 @@ export function StoriesTable({data}: TProps) {
           onChangeSorting={setSorting}
         />
       </div>
-      <div className="flex justify-center lg:justify-end py-4 lg:p-8 lg:px-8">
+      <div className="flex justify-center lg:justify-end pt-7.5 lg:p-8 lg:px-8 pb-8.5">
         <OPaginationControls totalPages={2} />
       </div>
     </>

@@ -8,7 +8,7 @@ import {SelectTrigger, SelectValue} from "~/components/ui/select";
 
 export default function StoryFilters() {
   return (
-    <div className="flex gap-7.5 justify-between px-4.5 lg:px-7.5 pb-7.5">
+    <div className="flex gap-7.5 justify-between px-4.5 lg:px-7.5 pb-8.5">
       <div className="flex gap-4.5 lg:gap-7.5 grow">
         <OSearchFilter
           param={EFilterParams.Search}
@@ -20,7 +20,7 @@ export default function StoryFilters() {
           param={EFilterParams.Status}
           items={Object.values(EStoryStatus)}
         >
-          <SelectTrigger className="capitalize bg-white w-full h-8.5 md:w-[200px]">
+          <SelectTrigger className="capitalize md:w-[200px]">
             <SelectValue placeholder="All Statuses"></SelectValue>
           </SelectTrigger>
         </OSelectFilter>
