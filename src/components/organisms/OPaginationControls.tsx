@@ -1,3 +1,4 @@
+"use client";
 import {Button} from "../ui/button";
 import {Form, FormField} from "~/components/ui/form";
 import {Input} from "../ui/input";
@@ -40,10 +41,10 @@ export function OPaginationControls({
 
   return (
     <Form {...form}>
-      <div className="inline-flex gap-4 items-center text-sm">
+      <div className="inline-flex gap-2 lg:gap-4 items-center text-sm">
         <form
           onSubmit={handleSubmit}
-          className="inline-flex gap-4 items-center text-sm"
+          className="inline-flex gap-2 lg:gap-4 items-center text-sm"
         >
           <FormField
             name="page"
