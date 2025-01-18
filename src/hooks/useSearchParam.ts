@@ -7,7 +7,7 @@ export function useSearchParam(param: string) {
   const set = useCallback(
     (value: string) => {
       const query = new URLSearchParams(searchParams.toString());
-      if (value.length > 0) {
+      if (value.trim().length > 0) {
         query.set(param, value);
       } else {
         query.delete(param);
