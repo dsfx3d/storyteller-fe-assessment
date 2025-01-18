@@ -35,11 +35,7 @@ export function StoriesTable({data}: TProps) {
         />
       </div>
       <div className="flex justify-center lg:justify-end py-4 lg:p-8 lg:px-8">
-        <OPaginationControls
-          currentPage={1}
-          onChangePage={() => {}}
-          totalPages={100}
-        />
+        <OPaginationControls totalPages={2} />
       </div>
     </>
   );
@@ -53,7 +49,7 @@ export const columns: TColumnDef<TStory>[] = [
     .accessor("title")
     .name("Title")
     .headerClassName(
-      "min-w-[202px] md:min-w-[400px] lg:min-w-[500px] lg:w-[616px] xl:max-w-[616px]",
+      "min-w-[202px] md:min-w-[400px] lg:w-[616px] lg:max-w-[616px]",
     )
     .cell(TitleCell)
     .build(),
