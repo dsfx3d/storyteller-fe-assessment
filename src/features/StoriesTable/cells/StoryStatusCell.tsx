@@ -16,7 +16,7 @@ export function StoryStatusCell({cell}: TProps) {
   }, [status, setStatus]);
   return (
     <div className="w-full flex justify-center" onClick={handleStatusClick}>
-      <AStoryStatus status={status} />
+      <AStoryStatus status={status} tabIndex={0} />
     </div>
   );
 }
