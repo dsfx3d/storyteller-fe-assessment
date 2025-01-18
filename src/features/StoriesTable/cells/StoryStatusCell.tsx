@@ -3,8 +3,8 @@ import {type CellContext} from "@tanstack/react-table";
 import {EFilterParams} from "~/lib/enums/EFilterParams";
 import {EStoryStatus} from "~/services/stories/enums/EStoryStatus";
 import {TStory} from "~/services/stories/types/TStory";
-import {useSearchParam} from "~/hooks/useSearchParam";
 import {useCallback} from "react";
+import {useSearchParam} from "~/hooks/useSearchParam";
 
 type TProps = CellContext<TStory, unknown>;
 
