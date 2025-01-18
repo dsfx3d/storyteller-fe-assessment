@@ -15,7 +15,7 @@ type TProps = {
   emptyValue?: string;
 };
 
-export function SearchFilter({
+export function OSearchFilter({
   className,
   param,
   as: InputField,

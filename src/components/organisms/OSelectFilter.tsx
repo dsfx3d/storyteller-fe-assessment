@@ -9,7 +9,7 @@ type TProps = {
   children: React.ReactNode;
 };
 
-export function SelectFilter({clearLabel, items, param, children}: TProps) {
+export function OSelectFilter({clearLabel, items, param, children}: TProps) {
   const [value, setValue] = useSearchParam(param);
   return (
     <Select value={value} onValueChange={setValue}>
