@@ -16,9 +16,9 @@ export function MStoryThumbnails({thumbnails}: TProps) {
   return (
     <div className="flex gap-1">
       {thumbs.map(thumbnail => (
-        <a href="#" key={thumbnail}>
+        <a href="#" key={thumbnail} className={thumbnailContainerStyle}>
           <Image
-            src={`https://picsum.photos/29/52?random=${thumbnail}`}
+            src={`https://picsum.photos/29/52?random=${thumbnail + Date.now()}`}
             width={29}
             height={52}
             alt="Story thumbnail"
@@ -35,12 +35,21 @@ export function MStoryThumbnails({thumbnails}: TProps) {
 
 function MoreThumbnails({value}: {value: number}) {
   return (
-    <div className={cn("flex justify-center items-center", thumbnailStyle)}>
-      +{value}
-    </div>
+    <a
+      href="#"
+      className="focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+    >
+      <div className={cn("flex justify-center items-center", thumbnailStyle)}>
+        +{value}
+      </div>
+    </a>
   );
 }
 
 const thumbnailStyle = cn(
   "bg-[#ebebeb] rounded-sm hover:opacity-75 w-[29px] h-[52px] cursor-pointer",
+);
+
+const thumbnailContainerStyle = cn(
+  "rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
 );
