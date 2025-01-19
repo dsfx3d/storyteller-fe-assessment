@@ -1,5 +1,4 @@
 "use client";
-import * as React from "react";
 import {ColumnBuilder} from "../../components/organisms/ODataTable/ColumnBuilder";
 import {DateTimeCell} from "./cells/DateTimeCell";
 import {HeaderCell} from "../../components/organisms/ODataTable/HeaderCell";
@@ -9,6 +8,7 @@ import {RowActions} from "./cells/RowControl";
 import {type SortingState} from "@tanstack/react-table";
 import {StoryStatusCell} from "./cells/StoryStatusCell";
 import {StoryThumbnailCell} from "./cells/StoryThumbnailCell";
+import {Suspense, useState} from "react";
 import {TColumnDef} from "~/components/organisms/ODataTable/TColumnDef";
 import {TStory} from "~/services/stories/types/TStory";
 import {TitleCell} from "./cells/TitleCell";
@@ -19,7 +19,7 @@ type TProps = {
 };
 
 export function StoriesTable({data}: TProps) {
-  const [sorting, setSorting] = React.useState<SortingState>([
+  const [sorting, setSorting] = useState<SortingState>([
     {
       id: "modifiedAt",
       desc: true,
@@ -28,16 +28,21 @@ export function StoriesTable({data}: TProps) {
   return (
     <>
       <StoryFilters />
-      <div className="overflow-auto">
-        <ODataTable
-          columns={columns}
-          data={data}
-          sorting={sorting}
-          onChangeSorting={setSorting}
-        />
-      </div>
+      {/* <div className="overflow-auto"> */}
+      <ODataTable
+        columns={columns}
+        data={data}
+        sorting={sorting}
+        onChangeSorting={setSorting}
+      />
+      {/* </div> */}
       <div className="flex justify-center lg:justify-end pt-7.5 lg:p-8 lg:px-8 pb-8.5">
-        <OPaginationControls totalPages={2} />
+        <Suspense>
+          <OPaginationControls
+            totalPages={2}
+            aria-label="Stories table pagination"
+          />
+        </Suspense>
       </div>
     </>
   );

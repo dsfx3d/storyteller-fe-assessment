@@ -8,7 +8,7 @@ import {useSearchParam} from "~/hooks/useSearchParam";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 
-type TProps = {
+type TProps = Omit<React.ComponentProps<"input">, "value"> & {
   className?: string;
   param: EFilterParams;
   as: typeof Input;
@@ -20,6 +20,7 @@ export function OSearchFilter({
   param,
   as: InputField,
   emptyValue,
+  ...inputProps
 }: TProps) {
   const [query, setQuery] = useSearchParam(param, {emptyValue});
   const form = useForm<z.infer<typeof schema>>({
@@ -36,7 +37,14 @@ export function OSearchFilter({
         <FormField
           name="query"
           control={form.control}
-          render={({field}) => <InputField {...field} />}
+          render={({field}) => (
+            <>
+              <label htmlFor={inputProps.id} className="sr-only">
+                {inputProps["aria-label"]}
+              </label>
+              <InputField {...inputProps} {...field} />
+            </>
+          )}
         />
       </form>
     </Form>

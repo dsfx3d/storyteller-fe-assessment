@@ -21,8 +21,12 @@ export const MSearchbar = forwardRef<HTMLInputElement, TProps>(
           {...inputProps}
           className="rounded-r-none focus-visible:ring-0"
           placeholder="Search"
+          aria-label="Search input"
         />
-        <Button className="w-8.5 h-8.5 rounded-l-none bg-gray-400 text-white peer-focus:bg-black">
+        <Button
+          className="w-8.5 h-8.5 rounded-l-none bg-gray-400 text-white peer-focus:bg-black focus-visible:bg-black"
+          aria-label="Search button"
+        >
           <Search />
         </Button>
       </div>

@@ -7,12 +7,12 @@ type TProps = {
 
 export default function SidebarLayout({children}: TProps) {
   return (
-    <div className="flex flex-col w-full h-full bg-primary">
+    <main className="flex flex-col w-full h-full bg-primary">
       <GlobalHeader />
       <div className="flex grow lg:pr-8 lg:mb-8">
         <Sidebar />
         {children}
       </div>
-    </div>
+    </main>
   );
 }

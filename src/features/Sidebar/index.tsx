@@ -12,6 +12,7 @@ import {useToggle} from "~/hooks/useToggle";
 
 const sidebarNavId = "sidebar-nav";
 
+// eslint-disable-next-line complexity
 export function Sidebar() {
   const isLessThanLg = useIsBreakpoint(EBreakpoints.lg);
   const [isOpen, toggleIsOpen, setIsOpen] = useToggle(true);
@@ -41,7 +42,9 @@ export function Sidebar() {
       </SidebarTogglePortal>
       <SidebarNav
         id={sidebarNavId}
+        role={isLessThanLg ? "dialog" : "navigation"}
         aria-hidden={!isOpen}
+        isExpanded={isOpen}
         className={toSidebar(isOpen && isLessThanLg)}
         menus={sidebarNavMenus}
       />

@@ -2,13 +2,21 @@ import {AStoryStatus} from "~/components/atoms/AStoryStatus";
 import {type CellContext} from "@tanstack/react-table";
 import {EFilterParams} from "~/lib/enums/EFilterParams";
 import {EStoryStatus} from "~/services/stories/enums/EStoryStatus";
+import {Suspense, useCallback} from "react";
 import {TStory} from "~/services/stories/types/TStory";
-import {useCallback} from "react";
 import {useSearchParam} from "~/hooks/useSearchParam";
 
 type TProps = CellContext<TStory, unknown>;
 
-export function StoryStatusCell({cell}: TProps) {
+export function StoryStatusCell(props: TProps) {
+  return (
+    <Suspense>
+      <StoryStatusCellInner {...props} />
+    </Suspense>
+  );
+}
+
+function StoryStatusCellInner({cell}: TProps) {
   const status = cell.getValue<EStoryStatus>();
   const [, setStatus] = useSearchParam(EFilterParams.Status);
   const handleStatusClick = useCallback(() => {
