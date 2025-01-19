@@ -4,14 +4,13 @@ import {EBreakpoints} from "~/lib/enums/EBreakpoints";
 import {MHamburgerToggle} from "~/components/molecules/MHamburgerToggle";
 import {Sidebar} from "./Sidebar";
 import {SidebarTogglePortal} from "./SidebarTogglePortal";
-import {useEffect, useRef} from "react";
+import {useCallback, useEffect, useRef} from "react";
 import {useIsBreakpoint} from "~/hooks/useIsBreakpoint";
 import {useToggle} from "~/hooks/useToggle";
 
 const sidebarNavId = "sidebar-nav";
 
 export function GlobalSidebar() {
-  const toggleBtnRef = useRef<SVGSVGElement>(null);
   const isSmallScreen = useIsBreakpoint(EBreakpoints.lg);
   const [isSidebarExpanded, toggleSidebar, setIsSidebarExpanded] =
     useToggle(true);
@@ -32,6 +31,8 @@ export function GlobalSidebar() {
       isSmallScreen && isSidebarExpanded ? "hidden" : "auto";
   }, [isSmallScreen, isSidebarExpanded]);
 
+  const toggleBtnRef = useRef<SVGSVGElement>(null);
+  const trapFocus = useCallback(() => toggleBtnRef.current?.focus(), []);
   return (
     <>
       <SidebarTogglePortal>
@@ -42,9 +43,11 @@ export function GlobalSidebar() {
           className="lg:scale-x-0"
           value={isSidebarExpanded}
           onToggle={toggleSidebar}
+          aria-label="Toggle Sidebar"
+          aria-hidden={!isSmallScreen}
           aria-expanded={isSidebarExpanded}
           aria-controls={sidebarNavId}
-          tabIndex={0}
+          tabIndex={toTabIndex(isSmallScreen)}
         />
       </SidebarTogglePortal>
       <Sidebar
@@ -53,7 +56,8 @@ export function GlobalSidebar() {
         id={sidebarNavId}
         role={isSmallScreen ? "dialog" : "navigation"}
         aria-hidden={!isSidebarExpanded}
-        onTrapFocus={() => toggleBtnRef.current?.focus()}
+        aria-expanded={isSidebarExpanded}
+        onTrapFocus={trapFocus}
       />
       <AnOverlay
         onClick={toggleSidebar}
@@ -62,3 +66,5 @@ export function GlobalSidebar() {
     </>
   );
 }
+
+const toTabIndex = (isSmallScreen?: boolean) => (isSmallScreen ? 0 : -1);
