@@ -1,10 +1,10 @@
-import {Sidebar} from "./index";
+import {GlobalSidebar} from "./index";
 import {sidebarToggleContainer} from "./sidebarToggleContainer";
 import type {Meta, StoryObj} from "@storybook/react";
 
 const meta = {
   title: "Features/Sidebar",
-  component: Sidebar,
+  component: GlobalSidebar,
   decorators: [
     Story => (
       <div className="bg-background">
@@ -16,7 +16,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Sidebar>;
+} satisfies Meta<typeof GlobalSidebar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

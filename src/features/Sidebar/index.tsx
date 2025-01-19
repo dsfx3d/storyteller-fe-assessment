@@ -2,65 +2,63 @@
 import {AnOverlay} from "~/components/atoms/AnOverlay";
 import {EBreakpoints} from "~/lib/enums/EBreakpoints";
 import {MHamburgerToggle} from "~/components/molecules/MHamburgerToggle";
-import {SidebarNav} from "~/features/Sidebar/SidebarNav";
+import {Sidebar} from "./Sidebar";
 import {SidebarTogglePortal} from "./SidebarTogglePortal";
-import {cn} from "~/lib/utils";
-import {sidebarNavMenus} from "~/features/Sidebar/sidebarNavMenus";
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 import {useIsBreakpoint} from "~/hooks/useIsBreakpoint";
 import {useToggle} from "~/hooks/useToggle";
 
 const sidebarNavId = "sidebar-nav";
 
-// eslint-disable-next-line complexity
-export function Sidebar() {
-  const isLessThanLg = useIsBreakpoint(EBreakpoints.lg);
-  const [isOpen, toggleIsOpen, setIsOpen] = useToggle(true);
+export function GlobalSidebar() {
+  const toggleBtnRef = useRef<SVGSVGElement>(null);
+  const isSmallScreen = useIsBreakpoint(EBreakpoints.lg);
+  const [isSidebarExpanded, toggleSidebar, setIsSidebarExpanded] =
+    useToggle(true);
+
   useEffect(() => {
-    if (isLessThanLg !== undefined) {
-      setIsOpen(!isLessThanLg);
+    if (isSmallScreen) {
+      // collapse the sidebar when screen shrinks to tablet and below
+      setIsSidebarExpanded(false);
+    } else {
+      // expand the sidebar when screen grows to desktop
+      setIsSidebarExpanded(true);
     }
-  }, [isLessThanLg, setIsOpen]);
+  }, [isSmallScreen, setIsSidebarExpanded]);
 
   // disable body scroll when sidebar is open on tablet and below
   useEffect(() => {
-    document.body.style.overflow = isLessThanLg && isOpen ? "hidden" : "auto";
-  }, [isLessThanLg, isOpen]);
+    document.body.style.overflow =
+      isSmallScreen && isSidebarExpanded ? "hidden" : "auto";
+  }, [isSmallScreen, isSidebarExpanded]);
+
   return (
     <>
       <SidebarTogglePortal>
         <MHamburgerToggle
+          ref={toggleBtnRef}
           size={32}
           color="white"
           className="lg:scale-x-0"
-          value={isOpen}
-          onToggle={toggleIsOpen}
-          aria-expanded={isOpen}
+          value={isSidebarExpanded}
+          onToggle={toggleSidebar}
+          aria-expanded={isSidebarExpanded}
           aria-controls={sidebarNavId}
           tabIndex={0}
         />
       </SidebarTogglePortal>
-      <SidebarNav
+      <Sidebar
+        isOpen={isSidebarExpanded}
+        isModal={isSmallScreen}
         id={sidebarNavId}
-        role={isLessThanLg ? "dialog" : "navigation"}
-        aria-hidden={!isOpen}
-        isExpanded={isOpen}
-        className={toSidebar(isOpen && isLessThanLg)}
-        menus={sidebarNavMenus}
+        role={isSmallScreen ? "dialog" : "navigation"}
+        aria-hidden={!isSidebarExpanded}
+        onTrapFocus={() => toggleBtnRef.current?.focus()}
       />
-      <AnOverlay onClick={toggleIsOpen} isOpen={isOpen && isLessThanLg} />
+      <AnOverlay
+        onClick={toggleSidebar}
+        isOpen={isSidebarExpanded && isSmallScreen}
+      />
     </>
   );
 }
-
-const toSidebar = (isOpen?: boolean) =>
-  cn(
-    `z-[50] bg-primary min-w-[228px] h-[calc(100vh_-_60px)]`,
-    "absolute lg:relative",
-    "scale-x-0 lg:scale-x-100",
-    "translate-x-[-100%] lg:translate-x-0",
-    "transition-transform lg:transition-none",
-    {
-      "translate-x-0 scale-x-100": isOpen,
-    },
-  );
