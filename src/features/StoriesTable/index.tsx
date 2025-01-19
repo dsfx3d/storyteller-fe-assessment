@@ -26,14 +26,12 @@ export function StoriesTable({data}: TProps) {
   ]);
   return (
     <>
-      {/* <div className="overflow-auto"> */}
       <ODataTable
         columns={columns}
         data={data}
         sorting={sorting}
         onChangeSorting={setSorting}
       />
-      {/* </div> */}
       <div className="flex justify-center lg:justify-end pt-7.5 lg:p-8 lg:px-8 pb-8.5">
         <Suspense>
           <OPaginationControls
