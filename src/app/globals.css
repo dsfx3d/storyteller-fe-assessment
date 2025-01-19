@@ -53,6 +53,7 @@ body {
 @layer components {
   @import "./styles/components/atoms/AnOverlay/_component.css";
   @import "./styles/components/atoms/AStoryStatus/_component.css";
+  @import "./styles/components/atoms/AThumbnail/_component.css";
   @import "./styles/features/GlobalHeader/_components.css";
   @import "./styles/features/Sidebar/_components.css";
 }

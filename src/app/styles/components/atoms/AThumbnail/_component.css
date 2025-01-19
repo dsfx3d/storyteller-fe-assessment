@@ -1,0 +1,9 @@
+.a-thumbnail {
+  @apply rounded-sm cursor-pointer;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+}
+
+.a-thumbnail > img, .a-thumbnail > div {
+  @apply bg-[#ebebeb] rounded-sm;
+  @apply w-[29px] h-[52px];
+}
