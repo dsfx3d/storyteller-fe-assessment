@@ -11,7 +11,7 @@ import {Suspense} from "react";
 
 export default function StoryFilters() {
   return (
-    <div className="flex gap-7.5 items-center px-4.5 lg:px-7.5">
+    <div className="flex gap-4.5 md:gap-7.5 items-center px-4.5 lg:px-7.5">
       <Suspense>
         <OSearchFilter
           param={EFilterParams.Search}
