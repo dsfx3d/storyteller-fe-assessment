@@ -31,6 +31,5 @@ Run development server on [http://localhost:3000](http://localhost:3000)
 Run storybook on [http://localhost:6006](http://localhost:6006)
 
   ```bash
-  # serves app on localhost:3000 and mock API on localhost:3001
   pnpm storybook
   ```
