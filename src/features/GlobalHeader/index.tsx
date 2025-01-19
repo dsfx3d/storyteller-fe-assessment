@@ -12,7 +12,7 @@ export function GlobalHeader() {
   useEffect(() => setIsReady(true), []);
 
   return (
-    <header className="bg-primary flex w-full justify-between items-center px-5 min-h-[60px] z-50">
+    <header className="global-header">
       <div className={cn(headerGroup, "gap-4")}>
         <div id={sidebarToggleContainer} className="lg:hidden">
           {/* placeholder to avoid flicker on initial load */}

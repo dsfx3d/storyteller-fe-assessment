@@ -24,7 +24,8 @@ export const MSearchbar = forwardRef<HTMLInputElement, TProps>(
           aria-label="Search input"
         />
         <Button
-          className="w-8.5 h-8.5 rounded-l-none bg-gray-400 text-white peer-focus:bg-black focus-visible:bg-black"
+          className="rounded-l-none bg-gray-400 text-white focus-visible:bg-black"
+          size="icon"
           aria-label="Search button"
         >
           <Search />

@@ -1,0 +1,6 @@
+.global-header {
+  min-height: var(--global-header-height);
+  z-index: var(--z-index-top);
+  @apply bg-primary px-5;
+  @apply flex w-full justify-between items-center
+}

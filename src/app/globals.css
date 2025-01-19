@@ -36,7 +36,9 @@ body {
     --input: 231 5% 75%;
     --ring: 240 10% 3.9%;
     --radius: 0.5rem;
+    --z-index-top: 9999;
   }
+  @import "./styles/features/GlobalHeader/_base.css";
 }
 
 @layer base {
@@ -46,4 +48,11 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+  @import "./styles/components/atoms/AnOverlay/_component.css";
+  @import "./styles/components/atoms/AStoryStatus/_component.css";
+  @import "./styles/features/GlobalHeader/_components.css";
+  @import "./styles/features/Sidebar/_components.css";
 }

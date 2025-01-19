@@ -8,15 +8,8 @@ export function AnOverlay({isOpen, className, ...divProps}: TProps) {
   return (
     <div
       aria-hidden="true"
-      className={cn(toAnOverlay(isOpen), className)}
+      className={cn("an-overlay", {"hidden opacity-0": !isOpen}, className)}
       {...divProps}
     ></div>
   );
 }
-
-const toAnOverlay = (isOpen?: boolean) =>
-  cn(
-    "fixed w-screen h-[200vh] bg-black left-0 top-0",
-    "opacity-75 z-40 transition-opacity",
-    {"hidden opacity-0": !isOpen},
-  );

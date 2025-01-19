@@ -1,0 +1,11 @@
+.global-sidebar {
+  @apply bg-primary;
+  @apply absolute lg:relative;
+  @apply scale-x-0 lg:scale-x-100;
+  @apply translate-x-[-100%] lg:translate-x-0;
+  @apply transition-transform lg:transition-none;
+
+  z-index: var(--z-index-top);
+  min-width: 228px;
+  height: calc(100vh - var(--global-header-height));
+}

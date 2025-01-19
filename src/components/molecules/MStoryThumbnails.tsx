@@ -18,7 +18,7 @@ export function MStoryThumbnails({thumbnails}: TProps) {
       {thumbs.map(thumbnail => (
         <a href="#" key={thumbnail} className={thumbnailContainerStyle}>
           <Image
-            src={`https://picsum.photos/29/52?random=${thumbnail + Date.now()}`}
+            src={`https://picsum.photos/29/52?random=${thumbnail}`}
             width={29}
             height={52}
             alt="Story thumbnail"
@@ -35,10 +35,7 @@ export function MStoryThumbnails({thumbnails}: TProps) {
 
 function MoreThumbnails({value}: {value: number}) {
   return (
-    <a
-      href="#"
-      className="focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-    >
+    <a href="#" className={thumbnailContainerStyle}>
       <div className={cn("flex justify-center items-center", thumbnailStyle)}>
         +{value}
       </div>

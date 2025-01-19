@@ -27,7 +27,12 @@ export function Sidebar({isOpen, isModal, onTrapFocus, ...asideProps}: TProps) {
     [isModal, onTrapFocus],
   );
   return (
-    <aside {...asideProps} className={toSidebar(isOpen && isModal)}>
+    <aside
+      {...asideProps}
+      className={cn("global-sidebar", {
+        "translate-x-0 scale-x-100": isOpen && isModal,
+      })}
+    >
       <SidebarNav menu={appMenu} tabIndex={tabIndex} />
       <SidebarNav menu={adminMenu} tabIndex={tabIndex} />
       <SidebarNavMenu>
@@ -41,18 +46,6 @@ export function Sidebar({isOpen, isModal, onTrapFocus, ...asideProps}: TProps) {
     </aside>
   );
 }
-
-const toSidebar = (isExpandedModal?: boolean) =>
-  cn(
-    `z-[50] bg-primary min-w-[228px] h-[calc(100vh_-_60px)]`,
-    "absolute lg:relative",
-    "scale-x-0 lg:scale-x-100",
-    "translate-x-[-100%] lg:translate-x-0",
-    "transition-transform lg:transition-none",
-    {
-      "translate-x-0 scale-x-100": isExpandedModal,
-    },
-  );
 
 const userGuideNavItem: TSidebarMenu["items"][number] = {
   icon: HelpCircle,
