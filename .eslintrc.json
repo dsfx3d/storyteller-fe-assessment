@@ -6,6 +6,7 @@
     "plugin:storybook/recommended"
   ],
   "rules": {
-    "unicorn/no-null": "off"
+    "unicorn/no-null": "off",
+    "@typescript-eslint/no-duplicate-enum-values": "off"
   }
 }
