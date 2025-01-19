@@ -16,7 +16,9 @@ export function useSearchParam(param: string, {emptyValue = ""}: TProps = {}) {
       } else {
         query.set(param, value);
       }
-      router.push(`?${query.toString()}`);
+      router.push(`?${query.toString()}`, {
+        scroll: false,
+      });
     },
     [searchParams, router, param, emptyValue],
   );
