@@ -28,6 +28,8 @@ Run production server on [http://localhost:3000](http://localhost:3000)
   pnpm start
   ```
 
+> If the server fails to startup, try running `pnpm mock-api` then `pnpm start:next` separately.
+
 Run storybook on [http://localhost:6006](http://localhost:6006)
 
   ```bash
