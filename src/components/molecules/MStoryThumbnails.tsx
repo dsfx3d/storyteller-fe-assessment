@@ -1,6 +1,4 @@
-import {cn} from "~/lib/utils";
 import AThumbnail from "../atoms/AThumbnail";
-import Image from "next/image";
 
 type TProps = {
   thumbnails: string[];
