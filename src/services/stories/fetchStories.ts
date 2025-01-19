@@ -1,13 +1,26 @@
+import {Reader} from "fp-ts/lib/Reader";
+import {TStory} from "./types/TStory";
+import {TStoryFilters} from "./types/TStoryFilters";
 import {env} from "~/lib/env";
+import {flatMap, fold, map, tryCatchK} from "fp-ts/lib/TaskEither";
+import {identity, pipe} from "fp-ts/lib/function";
+import {of} from "fp-ts/lib/Task";
 import {storySchema} from "./schema/storySchema";
 import {z} from "zod";
 
-export async function fetchStories() {
-  try {
-    const res = await fetch(`${env.NEXT_PUBLIC_API_URL}/stories?_limit=20`);
-    return z.array(storySchema).parse(await res.json());
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-}
+const toRequestUrl = ({pagination}: TStoryFilters) =>
+  `${env.NEXT_PUBLIC_API_URL}/stories?_limit=${pagination.limit}&_start=${pagination.offset}`;
+
+export const fetchStories: Reader<TStoryFilters, Promise<TStory[]>> = (
+  filters: TStoryFilters,
+) =>
+  pipe(
+    toRequestUrl(filters),
+    tryCatchK(fetch, identity),
+    flatMap(tryCatchK(res => res.json(), identity)),
+    map(z.array(storySchema).parse),
+    fold(err => {
+      console.error(err);
+      return of([]);
+    }, of),
+  )();

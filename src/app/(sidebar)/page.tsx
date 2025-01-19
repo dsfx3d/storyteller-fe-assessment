@@ -1,10 +1,20 @@
 import {CreateStory} from "~/features/CreateStory";
 import {StoriesTable} from "~/features/StoriesTable";
 import {fetchStories} from "~/services/stories/fetchStories";
+import {fromQuery} from "~/services/stories/storyFiltersInterop";
+import {pipe} from "fp-ts/lib/function";
 import StoryFilters from "~/features/StoriesTable/StoryFilters";
 
-export default async function Home() {
-  const data = await fetchStories();
+type TProps = {
+  searchParams: URLSearchParams;
+};
+
+export default async function Home({searchParams}: TProps) {
+  const data = await pipe(
+    new URLSearchParams(searchParams),
+    fromQuery,
+    fetchStories,
+  );
   return (
     <section
       aria-label="Stories"
