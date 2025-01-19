@@ -1,4 +1,3 @@
 export type TPagination = {
-  limit: number;
-  offset: number;
+  page: number;
 };

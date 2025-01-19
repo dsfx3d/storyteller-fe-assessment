@@ -1,3 +1,4 @@
+import {EFilterParams} from "~/lib/enums/EFilterParams";
 import {Reader} from "fp-ts/lib/Reader";
 import {TStory} from "./types/TStory";
 import {TStoryFilters} from "./types/TStoryFilters";
@@ -9,7 +10,7 @@ import {storySchema} from "./schema/storySchema";
 import {z} from "zod";
 
 const toRequestUrl = ({pagination}: TStoryFilters) =>
-  `${env.NEXT_PUBLIC_API_URL}/stories?_limit=${pagination.limit}&_start=${pagination.offset}`;
+  `${env.NEXT_PUBLIC_API_URL}/api/stories?${EFilterParams.Page}=${pagination.page}`;
 
 export const fetchStories: Reader<TStoryFilters, Promise<TStory[]>> = (
   filters: TStoryFilters,
