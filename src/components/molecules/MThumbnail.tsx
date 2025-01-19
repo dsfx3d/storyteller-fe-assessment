@@ -1,4 +1,4 @@
-import {ASafeImage} from "./ASafeImage";
+import {ASafeImage} from "../atoms/ASafeImage";
 import Image from "next/image";
 
 type TProps = Omit<React.ComponentProps<typeof Image>, "src" | "alt"> &
@@ -15,7 +15,7 @@ type TProps = Omit<React.ComponentProps<typeof Image>, "src" | "alt"> &
       }
   );
 
-export default function AThumbnail({src, text, alt, ...imgProps}: TProps) {
+export function MThumbnail({src, text, alt, ...imgProps}: TProps) {
   return (
     <a href="#" className={"a-thumbnail hover:opacity-75"}>
       {text && <div className="flex justify-center items-center">{text}</div>}
