@@ -4,13 +4,11 @@
   "private": true,
   "packageManager": "pnpm@9.15.2",
   "scripts": {
-    "dev": "concurrently \"next dev\" \"pnpm mock-api\"",
+    "dev": "next dev",
     "build": "next build",
-    "start:next": "pnpm build && next start",
-    "start": "concurrently \"pnpm start:next\" \"pnpm mock-api\"",
+    "start": "pnpm build && next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "mock-api": "npx json-server ./mock/db.json --port 3001",
     "build-storybook": "storybook build"
   },
   "dependencies": {
@@ -50,7 +48,6 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "concurrently": "^9.1.2",
     "eslint": "^8",
     "eslint-config-dsfx3d": "^0.1.9",
     "eslint-config-next": "14.2.23",
