@@ -22,14 +22,14 @@ export function HeaderCell({column}: THeaderProps) {
     meta?.columnName && (
       <Button
         variant="ghost"
-        className="p-0 text-sm justify-start font-semibold h-7"
+        className="p-0 mb-1.5 text-sm h-fit justify-start font-semibold text-[#50525b] gap-2 [&_svg]:size-4"
         onClick={handleClick}
       >
         {meta?.columnName}
         {!meta?.disableSort && (
           <Icon
             className={cn({
-              "opacity-35": sortDirection === false,
+              "opacity-50": sortDirection === false,
             })}
           />
         )}

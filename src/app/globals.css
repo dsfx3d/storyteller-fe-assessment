@@ -22,13 +22,13 @@ body {
     --popover-foreground: 240 10% 3.9%;
     --primary: 227 24% 12%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 98%;
+    --secondary: 230 7% 84;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted-foreground: 232 5% 65%;
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 220 84% 51%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 61% 55%;
     --destructive-foreground: 0 0% 98%;
     --success: 151 73% 41%;
     --info: 220 80% 31%;
@@ -44,9 +44,15 @@ body {
 @layer base {
   * {
     @apply border-border font-sans;
+    letter-spacing: calc(1rem * -0.01);
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  h1 {
+    letter-spacing: calc(1rem * 0.02);
+    @apply scale-y-[1.01]
   }
 }
 

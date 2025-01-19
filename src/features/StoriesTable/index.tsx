@@ -12,7 +12,6 @@ import {Suspense, useState} from "react";
 import {TColumnDef} from "~/components/organisms/ODataTable/TColumnDef";
 import {TStory} from "~/services/stories/types/TStory";
 import {TitleCell} from "./cells/TitleCell";
-import StoryFilters from "./StoryFilters";
 
 type TProps = {
   data: TStory[];
@@ -27,7 +26,6 @@ export function StoriesTable({data}: TProps) {
   ]);
   return (
     <>
-      <StoryFilters />
       {/* <div className="overflow-auto"> */}
       <ODataTable
         columns={columns}
@@ -49,32 +47,32 @@ export function StoriesTable({data}: TProps) {
 }
 
 const column = ColumnBuilder.column<TStory>().header(HeaderCell);
-const timeColumn = column.headerClassName("min-w-[165px]").cell(DateTimeCell);
+const timeColumn = column.headerClassName("min-w-[154px]").cell(DateTimeCell);
 
 export const columns: TColumnDef<TStory>[] = [
   column
     .accessor("title")
     .name("Title")
     .headerClassName(
-      "min-w-[202px] md:min-w-[400px] lg:w-[616px] lg:max-w-[616px]",
+      "pl-4.5 md:pl-7.5 min-w-[202px] md:min-w-[400px] lg:min-w-[475px] xl:min-w-[596px] xl:max-w-[596px]",
     )
     .cell(TitleCell)
     .build(),
   column
     .accessor("thumbnails")
     .name("Pages")
-    .headerClassName("min-w-[273px]")
+    .headerClassName("min-w-[264px]")
     .cell(StoryThumbnailCell)
     .disableSort()
     .build(),
-  timeColumn.accessor("modifiedAt").name("Modified At").build(),
+  timeColumn.accessor("modifiedAt").name("Last Modified").build(),
   column
     .accessor("status")
     .name("Status")
-    .headerClassName("w-[111px] text-center")
+    .headerClassName("w-[100px]")
     .cell(StoryStatusCell)
     .build(),
   timeColumn.accessor("liveAt").name("Live From").build(),
-  timeColumn.accessor("endAt").name("End").build(),
+  timeColumn.accessor("endAt").name("Ends").build(),
   column.accessor("id").disableSort().cell(RowActions).build(),
 ];

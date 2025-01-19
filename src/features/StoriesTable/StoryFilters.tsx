@@ -10,7 +10,7 @@ import {Suspense} from "react";
 
 export default function StoryFilters() {
   return (
-    <div className="flex gap-7.5 justify-between px-4.5 lg:px-7.5 pb-8.5">
+    <div className="flex gap-7.5 justify-between px-4.5 lg:px-7.5">
       <div className="flex gap-4.5 lg:gap-7.5 grow">
         <Suspense>
           <OSearchFilter

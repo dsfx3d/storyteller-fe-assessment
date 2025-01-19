@@ -13,7 +13,7 @@ export function StoryThumbnailCell({cell}: TProps) {
     ? thumbnails.slice(0, Math.min(thumbnailCount, maxThumbnails - 1))
     : thumbnails;
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-1.5">
       {thumbs.map(thumbnail => (
         <MThumbnail
           key={thumbnail}
