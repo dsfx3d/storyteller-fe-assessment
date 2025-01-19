@@ -1,5 +1,5 @@
 "use client";
-import {CreateStory} from "../CreateStory";
+import {CreateStory} from "~/features/CreateStory";
 import {EFilterParams} from "~/lib/enums/EFilterParams";
 import {EStoryStatus} from "~/services/stories/enums/EStoryStatus";
 import {MSearchbar} from "~/components/molecules/MSearchbar";

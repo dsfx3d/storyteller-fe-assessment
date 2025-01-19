@@ -1,7 +1,7 @@
 "use client";
-import {ColumnBuilder} from "../../components/organisms/ODataTable/ColumnBuilder";
+import {ColumnBuilder} from "~/components/organisms/ODataTable/ColumnBuilder";
 import {DateTimeCell} from "./cells/DateTimeCell";
-import {HeaderCell} from "../../components/organisms/ODataTable/HeaderCell";
+import {HeaderCell} from "~/components/organisms/ODataTable/HeaderCell";
 import {ODataTable} from "~/components/organisms/ODataTable";
 import {OPaginationControls} from "~/components/organisms/OPaginationControls";
 import {RowActions} from "./cells/RowControl";

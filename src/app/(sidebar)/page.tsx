@@ -1,9 +1,9 @@
 import {CreateStory} from "~/features/CreateStory";
-import {StoriesTable} from "~/features/StoriesTable";
+import {StoriesTable} from "./_features/StoriesTable";
 import {fetchStories} from "~/services/stories/fetchStories";
 import {fromQuery} from "~/services/stories/storyFiltersInterop";
 import {pipe} from "fp-ts/lib/function";
-import StoryFilters from "~/features/StoriesTable/StoryFilters";
+import StoryFilters from "./_features/StoriesTable/StoryFilters";
 
 type TProps = {
   searchParams: URLSearchParams;
