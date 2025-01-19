@@ -6,15 +6,24 @@ import {MoveLeft, MoveRight} from "lucide-react";
 import {OSearchFilter} from "~/components/organisms/OSearchFilter";
 import {OSelectFilter} from "~/components/organisms/OSelectFilter";
 import {SelectTrigger, SelectValue} from "../ui/select";
+import {minmax} from "~/lib/minmax";
 import {useSearchParam} from "~/hooks/useSearchParam";
-import React from "react";
+import React, {useCallback} from "react";
 
 type TProps = React.ComponentProps<"nav"> & {
   totalPages: number;
 };
 
 export function OPaginationControls({totalPages, ...navProps}: TProps) {
-  const [page, setPage] = useSearchParam(EFilterParams.Page, {emptyValue: "1"});
+  const [page, unsafeSetPage] = useSearchParam(EFilterParams.Page, {
+    emptyValue: "1",
+  });
+  const setPage = useCallback(
+    (page: number) => {
+      unsafeSetPage(minmax(page, 1, totalPages).toString());
+    },
+    [totalPages, unsafeSetPage],
+  );
   return (
     <nav
       {...navProps}
@@ -43,7 +52,7 @@ export function OPaginationControls({totalPages, ...navProps}: TProps) {
           role="button"
           className="text-[#888a8f] rounded-r-none border-r-[0.5px] rounded-l-sm w-8 h-8"
           variant="outline"
-          onClick={() => setPage((+page - 1).toString())}
+          onClick={() => setPage(+page - 1)}
           aria-label="Previous page"
         >
           <MoveLeft />
@@ -52,7 +61,7 @@ export function OPaginationControls({totalPages, ...navProps}: TProps) {
           role="button"
           className="text-[#888a8f] rounded-l-none border-l-[0.5px] rounded-r-sm w-8 h-8"
           variant="outline"
-          onClick={() => setPage((+page + 1).toString())}
+          onClick={() => setPage(+page + 1)}
           aria-label="Next page"
         >
           <MoveRight />
