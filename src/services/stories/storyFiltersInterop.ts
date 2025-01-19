@@ -2,11 +2,12 @@ import {EFilterParams} from "~/lib/enums/EFilterParams";
 import {TStoryFilters} from "./types/TStoryFilters";
 
 export function fromQuery(params: URLSearchParams): TStoryFilters {
-  const page = Number(params.get(EFilterParams.Page));
+  const rawPage = Number(params.get(EFilterParams.Page));
+  const page = Math.max(rawPage - 1, 1);
   const pageSize = Number(params.get(EFilterParams.PageSize)) || 10;
   return {
     pagination: {
-      offset: (page - 1) * pageSize,
+      offset: page * pageSize,
       limit: pageSize,
     },
   };
