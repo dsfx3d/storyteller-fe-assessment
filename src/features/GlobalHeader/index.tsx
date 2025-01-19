@@ -15,20 +15,24 @@ export function GlobalHeader() {
     <header className="global-header">
       <div className={cn(headerGroup, "gap-4")}>
         <div id={sidebarToggleContainer} className="lg:hidden">
-          {/* placeholder to avoid flicker on initial load */}
+          {/* placeholder sidebar toggle to avoid flicker on initial load */}
           {!isReady && (
             <Menu size={32} color="white" className="lg:scale-x-0" />
           )}
         </div>
-        <AStorytellerLogo className="h-9.5 w-auto" />
+        <a href="/">
+          <AStorytellerLogo className="h-9.5 w-auto" />
+        </a>
       </div>
-      <div className={headerGroup}>
-        <AHelpIcon className="w-auto h-5 fill-white cursor-pointer" />
-        <Avatar className="w-7.5 h-7.5 md:h-9 md:w-9 cursor-pointer lg:mr-2.5">
-          <AvatarFallback className="font-inter bg-info text-white text-sm md:text-xl">
-            RJ
-          </AvatarFallback>
-        </Avatar>
+      <div className={cn(headerGroup, "lg:mr-2.5")}>
+        <a href="#">
+          <AHelpIcon className="w-auto h-5 fill-white cursor-pointer" />
+        </a>
+        <a href="#">
+          <Avatar className="cursor-pointer">
+            <AvatarFallback>RJ</AvatarFallback>
+          </Avatar>
+        </a>
       </div>
     </header>
   );
