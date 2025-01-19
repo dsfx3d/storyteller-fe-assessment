@@ -21,11 +21,11 @@ pnpm i
 
 ## Getting Started
 
-Run development server on [http://localhost:3000](http://localhost:3000)
+Run production server on [http://localhost:3000](http://localhost:3000)
 
   ```bash
   # serves app on localhost:3000 and mock API on localhost:3001
-  pnpm dev
+  pnpm start
   ```
 
 Run storybook on [http://localhost:6006](http://localhost:6006)

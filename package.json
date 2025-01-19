@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"next dev\" \"pnpm mock-api\"",
     "build": "next build",
-    "start": "next start",
+    "start": "concurrently \"pnpm build && next start\" \"pnpm mock-api\"",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "mock-api": "npx json-server ./mock/db.json --port 3001",
