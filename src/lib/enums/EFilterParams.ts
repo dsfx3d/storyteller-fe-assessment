@@ -3,4 +3,5 @@ export enum EFilterParams {
   Status = "_status",
   Page = "_page",
   PageSize = "_pSize",
+  OrderBy = "_orderBy",
 }

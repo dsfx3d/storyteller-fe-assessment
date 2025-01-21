@@ -5,25 +5,20 @@ import {HeaderCell} from "~/components/organisms/ODataTable/HeaderCell";
 import {ODataTable} from "~/components/organisms/ODataTable";
 import {OPaginationControls} from "~/components/organisms/OPaginationControls";
 import {RowActions} from "./cells/RowControl";
-import {type SortingState} from "@tanstack/react-table";
 import {StoryStatusCell} from "./cells/StoryStatusCell";
 import {StoryThumbnailCell} from "./cells/StoryThumbnailCell";
-import {Suspense, useState} from "react";
+import {Suspense} from "react";
 import {TColumnDef} from "~/components/organisms/ODataTable/TColumnDef";
 import {TStory} from "~/services/stories/types/TStory";
 import {TitleCell} from "./cells/TitleCell";
+import {useSorting} from "~/components/organisms/ODataTable/hooks/useSorting";
 
 type TProps = {
   data: TStory[];
 };
 
 export function StoriesTable({data}: TProps) {
-  const [sorting, setSorting] = useState<SortingState>([
-    {
-      id: "modifiedAt",
-      desc: true,
-    },
-  ]);
+  const [sorting, setSorting] = useSorting("-modifiedAt");
   return (
     <>
       <ODataTable
