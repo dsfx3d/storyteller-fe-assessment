@@ -9,7 +9,7 @@
 
 ## Prerequisites
 
-You will need [pnpm](https://pnpm.io/) to run this project`
+You will need [pnpm](https://pnpm.io/) to run this project
 
 ```bash
 # install pnpm
@@ -24,7 +24,6 @@ pnpm i
 Run production server on [http://localhost:3000](http://localhost:3000)
 
   ```bash
-  # serves app on localhost:3000 and mock API on localhost:3001
   pnpm start
   ```
 
