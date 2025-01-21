@@ -21,7 +21,7 @@ export function GlobalHeader() {
           )}
         </div>
         <a href="/">
-          <AStorytellerLogo className="h-9.5 w-auto" />
+          <AStorytellerLogo className="h-8 sm:h-9.5 w-auto" />
         </a>
       </div>
       <div className={cn(headerGroup, "lg:mr-2.5")}>
@@ -38,4 +38,4 @@ export function GlobalHeader() {
   );
 }
 
-const headerGroup = cn("flex items-center gap-5 md:gap-8");
+const headerGroup = cn("flex items-center gap-4.5 lg:gap-7.5");

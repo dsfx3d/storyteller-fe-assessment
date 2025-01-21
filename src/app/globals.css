@@ -48,11 +48,11 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    min-width: 320px;
   }
 
   h1 {
     letter-spacing: calc(1rem * 0.02);
-    @apply scale-y-[1.01]
   }
 }
 

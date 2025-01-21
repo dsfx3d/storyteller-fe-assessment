@@ -1,6 +1,6 @@
 .a-story-status {
   @apply h-4.5 px-1.5 inline-flex items-center;
-  @apply border border-transparent shadow;
+  @apply border border-transparent shadow rounded-sm;
   @apply text-xs font-bold capitalize text-primary-foreground;
   @apply cursor-pointer;
   @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
