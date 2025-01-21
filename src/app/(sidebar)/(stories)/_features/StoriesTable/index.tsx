@@ -52,7 +52,7 @@ export const columns: TColumnDef<TStory>[] = [
     .accessor("title")
     .name("Title")
     .headerClassName(
-      "pl-4.5 md:pl-7.5 min-w-[202px] md:min-w-[400px] lg:min-w-[475px] xl:min-w-[596px] xl:max-w-[596px]",
+      "pl-4.5 lg:pl-7.5 min-w-[202px] md:min-w-[400px] lg:min-w-[475px] xl:min-w-[596px] xl:max-w-[596px]",
     )
     .cell(TitleCell)
     .build(),
