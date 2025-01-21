@@ -8,7 +8,7 @@ type TProps = CellContext<TStory, unknown>;
 export function RowActions({row}: TProps) {
   const title = row.getValue("title");
   return (
-    <div className="flex gap-4 justify-center">
+    <div className="flex gap-4 justify-center md:pr-2.5">
       <Button variant="destructive" size="sm" aria-label={`Delete ${title}`}>
         <Trash2 />
       </Button>
