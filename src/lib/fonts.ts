@@ -4,6 +4,10 @@ export const sansRegular = localFont({
   src: [
     {path: "../app/fonts/EuclidCircularB-Regular.woff", weight: "400"},
     {
+      path: "../app/fonts/EuclidCircularB-Medium.woff",
+      weight: "500",
+    },
+    {
       path: "../app/fonts/EuclidCircularB-SemiBold.woff",
       weight: "600",
     },
