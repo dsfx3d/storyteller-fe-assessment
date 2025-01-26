@@ -20,6 +20,7 @@ export function StoryThumbnailCell({cell}: TProps) {
           src={`https://picsum.photos/29/52?random=${thumbnail}`}
           width={29}
           height={52}
+          className="min-w-[29px] min-h-[52px]"
           alt="Story thumbnail"
         />
       ))}
