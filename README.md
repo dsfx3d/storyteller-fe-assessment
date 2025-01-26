@@ -6,6 +6,7 @@
   - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
   - [Getting Started](#getting-started)
+  - [Features](#features)
 
 ## Prerequisites
 
@@ -32,3 +33,13 @@ Run storybook on [http://localhost:6006](http://localhost:6006)
   ```bash
   pnpm storybook
   ```
+
+## Features
+
+1. Responsive UI supporting small mobile (320px) to 4K displays.
+2. Every interactive element is focusable and traversable with a keyboard.
+3. When sidebar is expanded in drawer mode, the focus gets trapped within the drawer while traversing with a keyboard.
+4. When the sidebar is collapsed, none of it's elements are focusable or traversable with a keyboard.
+5. Mock API with pagination hosted as a next.js route.
+6. Filters and pagination are 2-way binded with the URL search params. (no validation/all filters don't work).
+7. Minimal ARIA tags to showcase accessability support for screen readers.
