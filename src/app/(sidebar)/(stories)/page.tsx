@@ -1,4 +1,5 @@
 import {CreateStory} from "~/features/CreateStory";
+import {Metadata} from "next";
 import {StoriesTable} from "./_features/StoriesTable";
 import {fetchStories} from "~/services/stories/fetchStories";
 import {fromQuery} from "~/services/stories/storyFiltersInterop";
@@ -7,6 +8,10 @@ import StoryFilters from "./_features/StoriesTable/StoryFilters";
 
 type TProps = {
   searchParams: URLSearchParams;
+};
+
+export const metadata: Metadata = {
+  title: "Stories",
 };
 
 export default async function Home({searchParams}: TProps) {
