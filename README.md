@@ -41,5 +41,5 @@ Run storybook on [http://localhost:6006](http://localhost:6006)
 3. When sidebar is expanded in drawer mode, the focus gets trapped within the drawer while traversing with a keyboard.
 4. When the sidebar is collapsed, none of it's elements are focusable or traversable with a keyboard.
 5. Mock API with pagination hosted as a next.js route.
-6. Filters and pagination are 2-way binded with the URL search params. (no validation/all filters don't work).
-7. Minimal ARIA tags to showcase accessability support for screen readers.
+6. Filters and pagination are 2-way binded with the URL search params. (no validation/filters are not implemented in the API).
+7. Minimal ARIA attributes to showcase accessability support for screen readers.
